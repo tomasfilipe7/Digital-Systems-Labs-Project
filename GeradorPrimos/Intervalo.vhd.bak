@@ -1,0 +1,25 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
+
+entity Intervalo is
+	port(enable : in std_logic;
+		  inserir: in std_logic_vector(9 downto 0);
+		  data  : out std_logic_vector(9 downto 0));
+end Intervalo;
+
+architecture Behavioral of Intervalo is
+	signal s_inserir,s_data : unsigned(9 downto 0);
+begin
+	
+	process(inserir)
+		begin
+			if(enable = '1') then
+				if (s_inserir > 0 and s_inserir < 1001) then 
+					s_data <= s_inserir;
+				end if;
+			end if;
+			
+	end process;
+	data <= std_logic_vector(s_data);
+end Behavioral;

@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sat Jun  2 05:22:05 2018
+Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+Revision Name : Ger_pri
+Top-level Entity Name : Control_Data
+Family : Cyclone IV E
+Total logic elements : 5,430
+    Total combinational functions : 2,869
+    Dedicated logic registers : 2,683
+Total registers : 2683
+Total pins : 48
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

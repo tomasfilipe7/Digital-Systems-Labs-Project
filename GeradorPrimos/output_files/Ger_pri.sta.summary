@@ -1,0 +1,101 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'ClkDividerN:clockDiv|clkOut'
+Slack : -20.326
+TNS   : -19049.026
+
+Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
+Slack : -5.006
+TNS   : -92.324
+
+Type  : Slow 1200mV 85C Model Hold 'ClkDividerN:clockDiv|clkOut'
+Slack : 0.385
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : 0.448
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -32.555
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ClkDividerN:clockDiv|clkOut'
+Slack : -1.285
+TNS   : -3418.100
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ControlPath:ControlPath|pState.Valid_2'
+Slack : 0.440
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ControlPath:ControlPath|pState.Valid_1'
+Slack : 0.452
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'ClkDividerN:clockDiv|clkOut'
+Slack : -18.229
+TNS   : -17313.167
+
+Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -4.492
+TNS   : -83.494
+
+Type  : Slow 1200mV 0C Model Hold 'ClkDividerN:clockDiv|clkOut'
+Slack : 0.338
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.405
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -32.555
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ClkDividerN:clockDiv|clkOut'
+Slack : -1.285
+TNS   : -3418.100
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ControlPath:ControlPath|pState.Valid_2'
+Slack : 0.458
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ControlPath:ControlPath|pState.Valid_1'
+Slack : 0.460
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'ClkDividerN:clockDiv|clkOut'
+Slack : -9.255
+TNS   : -8716.716
+
+Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -1.825
+TNS   : -32.372
+
+Type  : Fast 1200mV 0C Model Hold 'ClkDividerN:clockDiv|clkOut'
+Slack : 0.172
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.204
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -27.391
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ClkDividerN:clockDiv|clkOut'
+Slack : -1.000
+TNS   : -2660.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ControlPath:ControlPath|pState.Valid_2'
+Slack : 0.423
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ControlPath:ControlPath|pState.Valid_1'
+Slack : 0.425
+TNS   : 0.000
+
+------------------------------------------------------------

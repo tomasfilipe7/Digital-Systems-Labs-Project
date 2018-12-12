@@ -1,0 +1,848 @@
+Analysis & Synthesis report for Ger_pri
+Sat Jun  2 05:22:05 2018
+Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |Control_Data|ControlPath:ControlPath|pState
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: ClkDividerN:clockDiv
+ 15. Parameter Settings for Inferred Entity Instance: DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod0
+ 16. Parameter Settings for Inferred Entity Instance: DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod1
+ 17. Parameter Settings for Inferred Entity Instance: DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod2
+ 18. Parameter Settings for Inferred Entity Instance: DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div0
+ 19. Parameter Settings for Inferred Entity Instance: DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div1
+ 20. Parameter Settings for Inferred Entity Instance: DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div2
+ 21. Parameter Settings for Inferred Entity Instance: DataPath:DataPath|Resto:Resto|lpm_divide:Mod0
+ 22. Port Connectivity Checks: "DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_mil"
+ 23. Port Connectivity Checks: "DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_cen"
+ 24. Port Connectivity Checks: "DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_dez"
+ 25. Port Connectivity Checks: "DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_uni"
+ 26. Port Connectivity Checks: "DataPath:DataPath|Visor:visor"
+ 27. Post-Synthesis Netlist Statistics for Top Partition
+ 28. Elapsed Time Per Partition
+ 29. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Jun  2 05:22:05 2018       ;
+; Quartus Prime Version              ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
+; Revision Name                      ; Ger_pri                                     ;
+; Top-level Entity Name              ; Control_Data                                ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 5,430                                       ;
+;     Total combinational functions  ; 2,869                                       ;
+;     Dedicated logic registers      ; 2,683                                       ;
+; Total registers                    ; 2683                                        ;
+; Total pins                         ; 48                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; Control_Data       ; Ger_pri            ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                          ; Enable             ; Enable             ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.2%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                     ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; Bin7SegDecoder.vhd               ; yes             ; User VHDL File               ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin7SegDecoder.vhd                       ;         ;
+; Resto.vhd                        ; yes             ; User VHDL File               ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/Resto.vhd                                ;         ;
+; Intervalo.vhd                    ; yes             ; User VHDL File               ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/Intervalo.vhd                            ;         ;
+; Counter_2.vhd                    ; yes             ; User VHDL File               ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/Counter_2.vhd                            ;         ;
+; Counter_1.vhd                    ; yes             ; User VHDL File               ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/Counter_1.vhd                            ;         ;
+; Comp.vhd                         ; yes             ; User VHDL File               ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/Comp.vhd                                 ;         ;
+; ControlPath.vhd                  ; yes             ; User VHDL File               ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/ControlPath.vhd                          ;         ;
+; Control_Data.vhd                 ; yes             ; User VHDL File               ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/Control_Data.vhd                         ;         ;
+; DataPath.vhd                     ; yes             ; User VHDL File               ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/DataPath.vhd                             ;         ;
+; Ram.vhd                          ; yes             ; User VHDL File               ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/Ram.vhd                                  ;         ;
+; Counter_Ram.vhd                  ; yes             ; User VHDL File               ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/Counter_Ram.vhd                          ;         ;
+; Bin2Bcd.vhd                      ; yes             ; User VHDL File               ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd                              ;         ;
+; Visor.vhd                        ; yes             ; User VHDL File               ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/Visor.vhd                                ;         ;
+; ClkDividerN.vhd                  ; yes             ; User VHDL File               ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/ClkDividerN.vhd                          ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/17.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/17.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/17.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal170.inc                   ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/17.1/quartus/libraries/megafunctions/aglobal170.inc      ;         ;
+; db/lpm_divide_ccm.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/lpm_divide_ccm.tdf                    ;         ;
+; db/sign_div_unsign_1nh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/sign_div_unsign_1nh.tdf               ;         ;
+; db/alt_u_div_m9f.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/alt_u_div_m9f.tdf                     ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/add_sub_7pc.tdf                       ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/add_sub_8pc.tdf                       ;         ;
+; db/lpm_divide_sim.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/lpm_divide_sim.tdf                    ;         ;
+; db/sign_div_unsign_klh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/sign_div_unsign_klh.tdf               ;         ;
+; db/alt_u_div_s6f.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/alt_u_div_s6f.tdf                     ;         ;
+; db/lpm_divide_vim.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/lpm_divide_vim.tdf                    ;         ;
+; db/sign_div_unsign_nlh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/sign_div_unsign_nlh.tdf               ;         ;
+; db/alt_u_div_27f.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/alt_u_div_27f.tdf                     ;         ;
+; db/lpm_divide_9km.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/lpm_divide_9km.tdf                    ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                               ;
++---------------------------------------------+-----------------------------+
+; Resource                                    ; Usage                       ;
++---------------------------------------------+-----------------------------+
+; Estimated Total logic elements              ; 5,430                       ;
+;                                             ;                             ;
+; Total combinational functions               ; 2869                        ;
+; Logic element usage by number of LUT inputs ;                             ;
+;     -- 4 input functions                    ; 2016                        ;
+;     -- 3 input functions                    ; 535                         ;
+;     -- <=2 input functions                  ; 318                         ;
+;                                             ;                             ;
+; Logic elements by mode                      ;                             ;
+;     -- normal mode                          ; 2567                        ;
+;     -- arithmetic mode                      ; 302                         ;
+;                                             ;                             ;
+; Total registers                             ; 2683                        ;
+;     -- Dedicated logic registers            ; 2683                        ;
+;     -- I/O registers                        ; 0                           ;
+;                                             ;                             ;
+; I/O pins                                    ; 48                          ;
+;                                             ;                             ;
+; Embedded Multiplier 9-bit elements          ; 0                           ;
+;                                             ;                             ;
+; Maximum fan-out node                        ; ClkDividerN:clockDiv|clkOut ;
+; Maximum fan-out                             ; 2661                        ;
+; Total fan-out                               ; 18395                       ;
+; Average fan-out                             ; 3.26                        ;
++---------------------------------------------+-----------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                            ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                             ; Entity Name         ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |Control_Data                                ; 2869 (1)            ; 2683 (0)                  ; 0           ; 0            ; 0       ; 0         ; 48   ; 0            ; |Control_Data                                                                                                                                   ; Control_Data        ; work         ;
+;    |ClkDividerN:clockDiv|                    ; 37 (37)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|ClkDividerN:clockDiv                                                                                                              ; ClkDividerN         ; work         ;
+;    |ControlPath:ControlPath|                 ; 21 (21)             ; 11 (11)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|ControlPath:ControlPath                                                                                                           ; ControlPath         ; work         ;
+;    |DataPath:DataPath|                       ; 2810 (15)           ; 2649 (0)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath                                                                                                                 ; DataPath            ; work         ;
+;       |Bin2Bcd:Bin2Bcd|                      ; 440 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd                                                                                                 ; Bin2Bcd             ; work         ;
+;          |lpm_divide:Div0|                   ; 88 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;             |lpm_divide_sim:auto_generated|  ; 88 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div0|lpm_divide_sim:auto_generated                                                   ; lpm_divide_sim      ; work         ;
+;                |sign_div_unsign_klh:divider| ; 88 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div0|lpm_divide_sim:auto_generated|sign_div_unsign_klh:divider                       ; sign_div_unsign_klh ; work         ;
+;                   |alt_u_div_s6f:divider|    ; 88 (88)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div0|lpm_divide_sim:auto_generated|sign_div_unsign_klh:divider|alt_u_div_s6f:divider ; alt_u_div_s6f       ; work         ;
+;          |lpm_divide:Div1|                   ; 72 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
+;             |lpm_divide_vim:auto_generated|  ; 72 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div1|lpm_divide_vim:auto_generated                                                   ; lpm_divide_vim      ; work         ;
+;                |sign_div_unsign_nlh:divider| ; 72 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div1|lpm_divide_vim:auto_generated|sign_div_unsign_nlh:divider                       ; sign_div_unsign_nlh ; work         ;
+;                   |alt_u_div_27f:divider|    ; 72 (72)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div1|lpm_divide_vim:auto_generated|sign_div_unsign_nlh:divider|alt_u_div_27f:divider ; alt_u_div_27f       ; work         ;
+;          |lpm_divide:Div2|                   ; 8 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div2                                                                                 ; lpm_divide          ; work         ;
+;             |lpm_divide_9km:auto_generated|  ; 8 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div2|lpm_divide_9km:auto_generated                                                   ; lpm_divide_9km      ; work         ;
+;                |sign_div_unsign_1nh:divider| ; 8 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div2|lpm_divide_9km:auto_generated|sign_div_unsign_1nh:divider                       ; sign_div_unsign_1nh ; work         ;
+;                   |alt_u_div_m9f:divider|    ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div2|lpm_divide_9km:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_m9f:divider ; alt_u_div_m9f       ; work         ;
+;          |lpm_divide:Mod0|                   ; 28 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;             |lpm_divide_ccm:auto_generated|  ; 28 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod0|lpm_divide_ccm:auto_generated                                                   ; lpm_divide_ccm      ; work         ;
+;                |sign_div_unsign_1nh:divider| ; 28 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod0|lpm_divide_ccm:auto_generated|sign_div_unsign_1nh:divider                       ; sign_div_unsign_1nh ; work         ;
+;                   |alt_u_div_m9f:divider|    ; 28 (28)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod0|lpm_divide_ccm:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_m9f:divider ; alt_u_div_m9f       ; work         ;
+;          |lpm_divide:Mod1|                   ; 106 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod1                                                                                 ; lpm_divide          ; work         ;
+;             |lpm_divide_ccm:auto_generated|  ; 106 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod1|lpm_divide_ccm:auto_generated                                                   ; lpm_divide_ccm      ; work         ;
+;                |sign_div_unsign_1nh:divider| ; 106 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod1|lpm_divide_ccm:auto_generated|sign_div_unsign_1nh:divider                       ; sign_div_unsign_1nh ; work         ;
+;                   |alt_u_div_m9f:divider|    ; 106 (106)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod1|lpm_divide_ccm:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_m9f:divider ; alt_u_div_m9f       ; work         ;
+;          |lpm_divide:Mod2|                   ; 138 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod2                                                                                 ; lpm_divide          ; work         ;
+;             |lpm_divide_ccm:auto_generated|  ; 138 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod2|lpm_divide_ccm:auto_generated                                                   ; lpm_divide_ccm      ; work         ;
+;                |sign_div_unsign_1nh:divider| ; 138 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod2|lpm_divide_ccm:auto_generated|sign_div_unsign_1nh:divider                       ; sign_div_unsign_1nh ; work         ;
+;                   |alt_u_div_m9f:divider|    ; 138 (138)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod2|lpm_divide_ccm:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_m9f:divider ; alt_u_div_m9f       ; work         ;
+;       |Bin7SegDecoder:Bin7SegDecoder_cen|    ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_cen                                                                               ; Bin7SegDecoder      ; work         ;
+;       |Bin7SegDecoder:Bin7SegDecoder_dez|    ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_dez                                                                               ; Bin7SegDecoder      ; work         ;
+;       |Bin7SegDecoder:Bin7SegDecoder_uni|    ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_uni                                                                               ; Bin7SegDecoder      ; work         ;
+;       |Comp:Comp|                            ; 3 (3)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Comp:Comp                                                                                                       ; Comp                ; work         ;
+;       |Counter_1:Counter_1|                  ; 71 (71)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Counter_1:Counter_1                                                                                             ; Counter_1           ; work         ;
+;       |Counter_2:Counter_2|                  ; 46 (46)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Counter_2:Counter_2                                                                                             ; Counter_2           ; work         ;
+;       |Counter_Ram:Counter_Ram|              ; 13 (13)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Counter_Ram:Counter_Ram                                                                                         ; Counter_Ram         ; work         ;
+;       |Intervalo:Intervalo1|                 ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Intervalo:Intervalo1                                                                                            ; Intervalo           ; work         ;
+;       |Intervalo:Intervalo2|                 ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Intervalo:Intervalo2                                                                                            ; Intervalo           ; work         ;
+;       |Ram:Ram|                              ; 1990 (1990)         ; 2561 (2561)               ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Ram:Ram                                                                                                         ; Ram                 ; work         ;
+;       |Resto:Resto|                          ; 129 (15)            ; 11 (11)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Resto:Resto                                                                                                     ; Resto               ; work         ;
+;          |lpm_divide:Mod0|                   ; 114 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Resto:Resto|lpm_divide:Mod0                                                                                     ; lpm_divide          ; work         ;
+;             |lpm_divide_ccm:auto_generated|  ; 114 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Resto:Resto|lpm_divide:Mod0|lpm_divide_ccm:auto_generated                                                       ; lpm_divide_ccm      ; work         ;
+;                |sign_div_unsign_1nh:divider| ; 114 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Resto:Resto|lpm_divide:Mod0|lpm_divide_ccm:auto_generated|sign_div_unsign_1nh:divider                           ; sign_div_unsign_1nh ; work         ;
+;                   |alt_u_div_m9f:divider|    ; 114 (114)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Resto:Resto|lpm_divide:Mod0|lpm_divide_ccm:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_m9f:divider     ; alt_u_div_m9f       ; work         ;
+;       |Visor:visor|                          ; 62 (62)             ; 34 (34)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Control_Data|DataPath:DataPath|Visor:visor                                                                                                     ; Visor               ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Control_Data|ControlPath:ControlPath|pState                                                                                                                                     ;
++-----------------+--------------+------------+-------------+-----------------+--------------+--------------+----------------+-----------------+----------------+----------------+-----------------+
+; Name            ; pState.Visor ; pState.Ram ; pState.Comp ; pState.Calc_Res ; pState.Cont2 ; pState.Cont1 ; pState.StandBy ; pState.Ins_Val2 ; pState.Valid_2 ; pState.Valid_1 ; pState.Ins_Val1 ;
++-----------------+--------------+------------+-------------+-----------------+--------------+--------------+----------------+-----------------+----------------+----------------+-----------------+
+; pState.Ins_Val1 ; 0            ; 0          ; 0           ; 0               ; 0            ; 0            ; 0              ; 0               ; 0              ; 0              ; 0               ;
+; pState.Valid_1  ; 0            ; 0          ; 0           ; 0               ; 0            ; 0            ; 0              ; 0               ; 0              ; 1              ; 1               ;
+; pState.Valid_2  ; 0            ; 0          ; 0           ; 0               ; 0            ; 0            ; 0              ; 0               ; 1              ; 0              ; 1               ;
+; pState.Ins_Val2 ; 0            ; 0          ; 0           ; 0               ; 0            ; 0            ; 0              ; 1               ; 0              ; 0              ; 1               ;
+; pState.StandBy  ; 0            ; 0          ; 0           ; 0               ; 0            ; 0            ; 1              ; 0               ; 0              ; 0              ; 1               ;
+; pState.Cont1    ; 0            ; 0          ; 0           ; 0               ; 0            ; 1            ; 0              ; 0               ; 0              ; 0              ; 1               ;
+; pState.Cont2    ; 0            ; 0          ; 0           ; 0               ; 1            ; 0            ; 0              ; 0               ; 0              ; 0              ; 1               ;
+; pState.Calc_Res ; 0            ; 0          ; 0           ; 1               ; 0            ; 0            ; 0              ; 0               ; 0              ; 0              ; 1               ;
+; pState.Comp     ; 0            ; 0          ; 1           ; 0               ; 0            ; 0            ; 0              ; 0               ; 0              ; 0              ; 1               ;
+; pState.Ram      ; 0            ; 1          ; 0           ; 0               ; 0            ; 0            ; 0              ; 0               ; 0              ; 0              ; 1               ;
+; pState.Visor    ; 1            ; 0          ; 0           ; 0               ; 0            ; 0            ; 0              ; 0               ; 0              ; 0              ; 1               ;
++-----------------+--------------+------------+-------------+-----------------+--------------+--------------+----------------+-----------------+----------------+----------------+-----------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                   ;
++-----------------------------------------------------+----------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                    ; Free of Timing Hazards ;
++-----------------------------------------------------+----------------------------------------+------------------------+
+; DataPath:DataPath|Intervalo:Intervalo2|s_data[0]    ; ControlPath:ControlPath|pState.Valid_2 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo1|s_data[0]    ; ControlPath:ControlPath|pState.Valid_1 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo2|s_data[9]    ; ControlPath:ControlPath|pState.Valid_2 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo1|s_data[9]    ; ControlPath:ControlPath|pState.Valid_1 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo2|s_data[8]    ; ControlPath:ControlPath|pState.Valid_2 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo1|s_data[8]    ; ControlPath:ControlPath|pState.Valid_1 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo2|s_data[7]    ; ControlPath:ControlPath|pState.Valid_2 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo1|s_data[7]    ; ControlPath:ControlPath|pState.Valid_1 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo2|s_data[6]    ; ControlPath:ControlPath|pState.Valid_2 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo1|s_data[6]    ; ControlPath:ControlPath|pState.Valid_1 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo2|s_data[5]    ; ControlPath:ControlPath|pState.Valid_2 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo1|s_data[5]    ; ControlPath:ControlPath|pState.Valid_1 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo2|s_data[4]    ; ControlPath:ControlPath|pState.Valid_2 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo1|s_data[4]    ; ControlPath:ControlPath|pState.Valid_1 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo2|s_data[3]    ; ControlPath:ControlPath|pState.Valid_2 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo1|s_data[3]    ; ControlPath:ControlPath|pState.Valid_1 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo2|s_data[2]    ; ControlPath:ControlPath|pState.Valid_2 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo1|s_data[2]    ; ControlPath:ControlPath|pState.Valid_1 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo2|s_data[1]    ; ControlPath:ControlPath|pState.Valid_2 ; yes                    ;
+; DataPath:DataPath|Intervalo:Intervalo1|s_data[1]    ; ControlPath:ControlPath|pState.Valid_1 ; yes                    ;
+; Number of user-specified and inferred latches = 20  ;                                        ;                        ;
++-----------------------------------------------------+----------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++--------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                               ;
++---------------------------------------------------------+----------------------------------------+
+; Register name                                           ; Reason for Removal                     ;
++---------------------------------------------------------+----------------------------------------+
+; DataPath:DataPath|Counter_2:Counter_2|s_counterValue[9] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 1                   ;                                        ;
++---------------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 2683  ;
+; Number of registers using Synchronous Clear  ; 83    ;
+; Number of registers using Synchronous Load   ; 2     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 2634  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------+
+; Inverted Register Statistics                               ;
++--------------------------------------------------+---------+
+; Inverted Register                                ; Fan out ;
++--------------------------------------------------+---------+
+; DataPath:DataPath|Counter_2:Counter_2|s_start[1] ; 13      ;
+; Total number of inverted registers = 1           ;         ;
++--------------------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------+
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |Control_Data|DataPath:DataPath|Counter_2:Counter_2|s_counterValue[7]      ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Control_Data|DataPath:DataPath|Counter_Ram:Counter_Ram|s_counterValue[7]  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Control_Data|DataPath:DataPath|Visor:visor|s_addr[7]                      ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |Control_Data|DataPath:DataPath|Counter_2:Counter_2|s_start[0]             ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |Control_Data|DataPath:DataPath|Visor:visor|count[0]                       ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |Control_Data|DataPath:DataPath|Counter_1:Counter_1|s_counterValue[2]      ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |Control_Data|DataPath:DataPath|Resto:Resto|s_output[4]                    ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |Control_Data|DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_uni|decOut_n ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |Control_Data|DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_dez|decOut_n ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |Control_Data|DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_cen|decOut_n ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |Control_Data|DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_mil|decOut_n ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Control_Data|DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_uni|decOut_n ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Control_Data|DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_dez|decOut_n ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Control_Data|DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_cen|decOut_n ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Control_Data|DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_mil|decOut_n ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ClkDividerN:clockDiv ;
++----------------+---------+----------------------------------------+
+; Parameter Name ; Value   ; Type                                   ;
++----------------+---------+----------------------------------------+
+; divfactor      ; 2500000 ; Signed Integer                         ;
++----------------+---------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod0 ;
++------------------------+----------------+----------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                     ;
++------------------------+----------------+----------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                  ;
+; LPM_WIDTHD             ; 10             ; Untyped                                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                  ;
+; CBXI_PARAMETER         ; lpm_divide_ccm ; Untyped                                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                           ;
++------------------------+----------------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod1 ;
++------------------------+----------------+----------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                     ;
++------------------------+----------------+----------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                  ;
+; LPM_WIDTHD             ; 10             ; Untyped                                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                  ;
+; CBXI_PARAMETER         ; lpm_divide_ccm ; Untyped                                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                           ;
++------------------------+----------------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod2 ;
++------------------------+----------------+----------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                     ;
++------------------------+----------------+----------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                  ;
+; LPM_WIDTHD             ; 10             ; Untyped                                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                  ;
+; CBXI_PARAMETER         ; lpm_divide_ccm ; Untyped                                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                           ;
++------------------------+----------------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div0 ;
++------------------------+----------------+----------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                     ;
++------------------------+----------------+----------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                  ;
+; LPM_WIDTHD             ; 4              ; Untyped                                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                  ;
+; CBXI_PARAMETER         ; lpm_divide_sim ; Untyped                                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                           ;
++------------------------+----------------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div1 ;
++------------------------+----------------+----------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                     ;
++------------------------+----------------+----------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                  ;
+; LPM_WIDTHD             ; 7              ; Untyped                                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                  ;
+; CBXI_PARAMETER         ; lpm_divide_vim ; Untyped                                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                           ;
++------------------------+----------------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div2 ;
++------------------------+----------------+----------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                     ;
++------------------------+----------------+----------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                                  ;
+; LPM_WIDTHD             ; 10             ; Untyped                                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                  ;
+; CBXI_PARAMETER         ; lpm_divide_9km ; Untyped                                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                           ;
++------------------------+----------------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DataPath:DataPath|Resto:Resto|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                              ;
+; LPM_WIDTHD             ; 10             ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_ccm ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_mil" ;
++--------+-------+----------+-----------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                             ;
++--------+-------+----------+-----------------------------------------------------+
+; enable ; Input ; Info     ; Stuck at VCC                                        ;
++--------+-------+----------+-----------------------------------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_cen" ;
++--------+-------+----------+-----------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                             ;
++--------+-------+----------+-----------------------------------------------------+
+; enable ; Input ; Info     ; Stuck at VCC                                        ;
++--------+-------+----------+-----------------------------------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_dez" ;
++--------+-------+----------+-----------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                             ;
++--------+-------+----------+-----------------------------------------------------+
+; enable ; Input ; Info     ; Stuck at VCC                                        ;
++--------+-------+----------+-----------------------------------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_uni" ;
++--------+-------+----------+-----------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                             ;
++--------+-------+----------+-----------------------------------------------------+
+; enable ; Input ; Info     ; Stuck at VCC                                        ;
++--------+-------+----------+-----------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DataPath:DataPath|Visor:visor"                                                      ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; done ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 48                          ;
+; cycloneiii_ff         ; 2683                        ;
+;     ENA               ; 2581                        ;
+;     ENA SCLR          ; 52                          ;
+;     ENA SLD           ; 1                           ;
+;     SCLR              ; 30                          ;
+;     SCLR SLD          ; 1                           ;
+;     plain             ; 18                          ;
+; cycloneiii_lcell_comb ; 2873                        ;
+;     arith             ; 302                         ;
+;         2 data inputs ; 99                          ;
+;         3 data inputs ; 203                         ;
+;     normal            ; 2571                        ;
+;         0 data inputs ; 34                          ;
+;         1 data inputs ; 10                          ;
+;         2 data inputs ; 179                         ;
+;         3 data inputs ; 332                         ;
+;         4 data inputs ; 2016                        ;
+;                       ;                             ;
+; Max LUT depth         ; 42.50                       ;
+; Average LUT depth     ; 30.13                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:05     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+    Info: Processing started: Sat Jun  2 05:21:48 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Ger_pri -c Ger_pri
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file Bin7SegDecoder.vhd
+    Info (12022): Found design unit 1: Bin7SegDecoder-Behavioral File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin7SegDecoder.vhd Line: 10
+    Info (12023): Found entity 1: Bin7SegDecoder File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin7SegDecoder.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file Resto.vhd
+    Info (12022): Found design unit 1: Resto-Behavioral File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Resto.vhd Line: 13
+    Info (12023): Found entity 1: Resto File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Resto.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file Intervalo.vhd
+    Info (12022): Found design unit 1: Intervalo-Behavioral File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Intervalo.vhd Line: 12
+    Info (12023): Found entity 1: Intervalo File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Intervalo.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file Counter_2.vhd
+    Info (12022): Found design unit 1: Counter_2-Behavioral File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Counter_2.vhd Line: 17
+    Info (12023): Found entity 1: Counter_2 File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Counter_2.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file Counter_1.vhd
+    Info (12022): Found design unit 1: Counter_1-Behavioral File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Counter_1.vhd Line: 18
+    Info (12023): Found entity 1: Counter_1 File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Counter_1.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file Comp.vhd
+    Info (12022): Found design unit 1: Comp-Behavioral File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Comp.vhd Line: 12
+    Info (12023): Found entity 1: Comp File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Comp.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file ControlPath.vhd
+    Info (12022): Found design unit 1: ControlPath-Behavioral File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/ControlPath.vhd Line: 31
+    Info (12023): Found entity 1: ControlPath File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/ControlPath.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file Control_Data.vhd
+    Info (12022): Found design unit 1: Control_Data-Shell File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Control_Data.vhd Line: 17
+    Info (12023): Found entity 1: Control_Data File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Control_Data.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file DataPath.vhd
+    Info (12022): Found design unit 1: DataPath-Behavioral File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/DataPath.vhd Line: 38
+    Info (12023): Found entity 1: DataPath File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/DataPath.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file Ram.vhd
+    Info (12022): Found design unit 1: Ram-Behavioral File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Ram.vhd Line: 14
+    Info (12023): Found entity 1: Ram File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Ram.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file Counter_Ram.vhd
+    Info (12022): Found design unit 1: Counter_Ram-Behavioral File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Counter_Ram.vhd Line: 13
+    Info (12023): Found entity 1: Counter_Ram File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Counter_Ram.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file Bin2Bcd.vhd
+    Info (12022): Found design unit 1: Bin2Bcd-Behavioral File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 13
+    Info (12023): Found entity 1: Bin2Bcd File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file Visor.vhd
+    Info (12022): Found design unit 1: Visor-Behavioral File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Visor.vhd Line: 14
+    Info (12023): Found entity 1: Visor File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Visor.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file ClkDividerN.vhd
+    Info (12022): Found design unit 1: ClkDividerN-Behavioral File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/ClkDividerN.vhd Line: 11
+    Info (12023): Found entity 1: ClkDividerN File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/ClkDividerN.vhd Line: 5
+Info (12127): Elaborating entity "Control_Data" for the top level hierarchy
+Info (12129): Elaborating entity "ClkDividerN" using architecture "A:behavioral" for hierarchy "ClkDividerN:clockDiv" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Control_Data.vhd Line: 34
+Info (12129): Elaborating entity "ControlPath" using architecture "A:behavioral" for hierarchy "ControlPath:ControlPath" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Control_Data.vhd Line: 43
+Warning (10036): Verilog HDL or VHDL warning at ControlPath.vhd(36): object "ins2" assigned a value but never read File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/ControlPath.vhd Line: 36
+Info (12129): Elaborating entity "DataPath" using architecture "A:behavioral" for hierarchy "DataPath:DataPath" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Control_Data.vhd Line: 69
+Warning (10541): VHDL Signal Declaration warning at DataPath.vhd(27): used implicit default value for signal "visor_done" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/DataPath.vhd Line: 27
+Warning (10541): VHDL Signal Declaration warning at DataPath.vhd(30): used implicit default value for signal "LEDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/DataPath.vhd Line: 30
+Warning (10036): Verilog HDL or VHDL warning at DataPath.vhd(55): object "s_reset_count2" assigned a value but never read File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/DataPath.vhd Line: 55
+Warning (10036): Verilog HDL or VHDL warning at DataPath.vhd(56): object "s_visor_done" assigned a value but never read File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/DataPath.vhd Line: 56
+Info (12129): Elaborating entity "Intervalo" using architecture "A:behavioral" for hierarchy "DataPath:DataPath|Intervalo:Intervalo1" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/DataPath.vhd Line: 64
+Warning (10631): VHDL Process Statement warning at Intervalo.vhd(16): inferring latch(es) for signal or variable "s_data", which holds its previous value in one or more paths through the process File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Intervalo.vhd Line: 16
+Info (10041): Inferred latch for "s_data[0]" at Intervalo.vhd(16) File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Intervalo.vhd Line: 16
+Info (10041): Inferred latch for "s_data[1]" at Intervalo.vhd(16) File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Intervalo.vhd Line: 16
+Info (10041): Inferred latch for "s_data[2]" at Intervalo.vhd(16) File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Intervalo.vhd Line: 16
+Info (10041): Inferred latch for "s_data[3]" at Intervalo.vhd(16) File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Intervalo.vhd Line: 16
+Info (10041): Inferred latch for "s_data[4]" at Intervalo.vhd(16) File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Intervalo.vhd Line: 16
+Info (10041): Inferred latch for "s_data[5]" at Intervalo.vhd(16) File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Intervalo.vhd Line: 16
+Info (10041): Inferred latch for "s_data[6]" at Intervalo.vhd(16) File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Intervalo.vhd Line: 16
+Info (10041): Inferred latch for "s_data[7]" at Intervalo.vhd(16) File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Intervalo.vhd Line: 16
+Info (10041): Inferred latch for "s_data[8]" at Intervalo.vhd(16) File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Intervalo.vhd Line: 16
+Info (10041): Inferred latch for "s_data[9]" at Intervalo.vhd(16) File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Intervalo.vhd Line: 16
+Info (12129): Elaborating entity "Counter_1" using architecture "A:behavioral" for hierarchy "DataPath:DataPath|Counter_1:Counter_1" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/DataPath.vhd Line: 76
+Info (12129): Elaborating entity "Counter_2" using architecture "A:behavioral" for hierarchy "DataPath:DataPath|Counter_2:Counter_2" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/DataPath.vhd Line: 89
+Info (12129): Elaborating entity "Resto" using architecture "A:behavioral" for hierarchy "DataPath:DataPath|Resto:Resto" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/DataPath.vhd Line: 99
+Info (12129): Elaborating entity "Comp" using architecture "A:behavioral" for hierarchy "DataPath:DataPath|Comp:Comp" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/DataPath.vhd Line: 107
+Info (12129): Elaborating entity "Ram" using architecture "A:behavioral" for hierarchy "DataPath:DataPath|Ram:Ram" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/DataPath.vhd Line: 112
+Info (12129): Elaborating entity "Counter_Ram" using architecture "A:behavioral" for hierarchy "DataPath:DataPath|Counter_Ram:Counter_Ram" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/DataPath.vhd Line: 122
+Info (12129): Elaborating entity "Visor" using architecture "A:behavioral" for hierarchy "DataPath:DataPath|Visor:visor" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/DataPath.vhd Line: 128
+Info (12129): Elaborating entity "Bin2Bcd" using architecture "A:behavioral" for hierarchy "DataPath:DataPath|Bin2Bcd:Bin2Bcd" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/DataPath.vhd Line: 138
+Info (12129): Elaborating entity "Bin7SegDecoder" using architecture "A:behavioral" for hierarchy "DataPath:DataPath|Bin7SegDecoder:Bin7SegDecoder_uni" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/DataPath.vhd Line: 146
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "DataPath:DataPath|Ram:Ram|s_memory" is uninferred due to asynchronous read logic File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Ram.vhd Line: 19
+Info (278001): Inferred 7 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataPath:DataPath|Bin2Bcd:Bin2Bcd|Mod0" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 15
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataPath:DataPath|Bin2Bcd:Bin2Bcd|Mod1" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 15
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataPath:DataPath|Bin2Bcd:Bin2Bcd|Mod2" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 15
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataPath:DataPath|Bin2Bcd:Bin2Bcd|Div0" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 16
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataPath:DataPath|Bin2Bcd:Bin2Bcd|Div1" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 17
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataPath:DataPath|Bin2Bcd:Bin2Bcd|Div2" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 18
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataPath:DataPath|Resto:Resto|Mod0" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Resto.vhd Line: 34
+Info (12130): Elaborated megafunction instantiation "DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod0" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 15
+Info (12133): Instantiated megafunction "DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod0" with the following parameter: File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 15
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ccm.tdf
+    Info (12023): Found entity 1: lpm_divide_ccm File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/lpm_divide_ccm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_1nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_1nh File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/sign_div_unsign_1nh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_m9f.tdf
+    Info (12023): Found entity 1: alt_u_div_m9f File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/alt_u_div_m9f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/add_sub_8pc.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod1" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 15
+Info (12133): Instantiated megafunction "DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod1" with the following parameter: File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 15
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12130): Elaborated megafunction instantiation "DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod2" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 15
+Info (12133): Instantiated megafunction "DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Mod2" with the following parameter: File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 15
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12130): Elaborated megafunction instantiation "DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div0" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 16
+Info (12133): Instantiated megafunction "DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div0" with the following parameter: File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 16
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_sim.tdf
+    Info (12023): Found entity 1: lpm_divide_sim File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/lpm_divide_sim.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_klh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_klh File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/sign_div_unsign_klh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_s6f.tdf
+    Info (12023): Found entity 1: alt_u_div_s6f File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/alt_u_div_s6f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div1" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 17
+Info (12133): Instantiated megafunction "DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div1" with the following parameter: File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 17
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_vim.tdf
+    Info (12023): Found entity 1: lpm_divide_vim File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/lpm_divide_vim.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_nlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_nlh File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/sign_div_unsign_nlh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_27f.tdf
+    Info (12023): Found entity 1: alt_u_div_27f File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/alt_u_div_27f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div2" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 18
+Info (12133): Instantiated megafunction "DataPath:DataPath|Bin2Bcd:Bin2Bcd|lpm_divide:Div2" with the following parameter: File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Bin2Bcd.vhd Line: 18
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_9km.tdf
+    Info (12023): Found entity 1: lpm_divide_9km File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/db/lpm_divide_9km.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "DataPath:DataPath|Resto:Resto|lpm_divide:Mod0" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Resto.vhd Line: 34
+Info (12133): Instantiated megafunction "DataPath:DataPath|Resto:Resto|lpm_divide:Mod0" with the following parameter: File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Resto.vhd Line: 34
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Control_Data.vhd Line: 10
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Control_Data.vhd Line: 14
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Control_Data.vhd Line: 14
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Control_Data.vhd Line: 14
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clk" File: /home/tomasfilipe7/lsd/PJLSD/BACKUP/Control_Data.vhd Line: 5
+Info (21057): Implemented 5478 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
+    Info (21059): Implemented 33 output pins
+    Info (21061): Implemented 5430 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 1029 megabytes
+    Info: Processing ended: Sat Jun  2 05:22:05 2018
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:31
+
+

@@ -1,0 +1,26 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
+
+entity Resto is
+	port(input_1  : in std_logic_vector(9 downto 0);
+		  input_2: in std_logic_vector(9 downto 0);
+		  output : out std_logic_vector(9 downto 0));
+end Resto;
+
+architecture Behavioral of Resto is
+	signal s_input_1,s_input_2,s_output: unsigned(9 downto 0);
+begin
+	process(input_1,input_2)
+	begin
+		if(s_input_1 = 2) then
+			s_output <= to_unsigned(1,10);
+		else
+			s_output <= s_input_1 mod s_input_2;
+		end if;
+	end process;
+	
+	output <=std_logic_vector(s_output);
+end Behavioral;
+	
+		  

@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sat Jun  2 05:22:39 2018
+Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+Revision Name : Ger_pri
+Top-level Entity Name : Control_Data
+Family : Cyclone IV E
+Device : EP4CE115F29C7
+Timing Models : Final
+Total logic elements : 4,074 / 114,480 ( 4 % )
+    Total combinational functions : 2,869 / 114,480 ( 3 % )
+    Dedicated logic registers : 2,683 / 114,480 ( 2 % )
+Total registers : 2683
+Total pins : 106 / 529 ( 20 % )
+Total virtual pins : 0
+Total memory bits : 0 / 3,981,312 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 532 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

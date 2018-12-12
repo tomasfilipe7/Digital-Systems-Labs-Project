@@ -1,0 +1,23 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+
+entity DataPath is
+	port(clk : in std_logic;
+		  s_valid     : in  std_logic; 
+		  cont1_done  : in  std_logic; 
+		  numberGo1   : in  std_logic; 
+		  cont2_done  : in  std_logic; 
+		  numberGo2   : in  std_logic; 
+		  ram_done    : in  std_logic; 
+		  resto_done  : in  std_logic; 
+		  equals_zero : in  std_logic; 
+		  visor_done  : in  std_logic; 
+		  En_intro    : out std_logic;
+		  En_valid    : out std_logic;
+		  En_cont1    : out std_logic;
+		  En_cont2    : out std_logic;
+		  En_res      : out std_logic;
+		  En_comp     : out std_logic;
+		  En_ram      : out std_logic;
+		  En_visor    : out std_logic);
+end DataPath;

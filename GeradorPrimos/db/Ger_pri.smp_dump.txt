@@ -1,0 +1,14 @@
+
+State Machine - |Control_Data|ControlPath:ControlPath|pState
+Name pState.Visor pState.Ram pState.Comp pState.Calc_Res pState.Cont2 pState.Cont1 pState.StandBy pState.Ins_Val2 pState.Valid_2 pState.Valid_1 pState.Ins_Val1 
+pState.Ins_Val1 0 0 0 0 0 0 0 0 0 0 0 
+pState.Valid_1 0 0 0 0 0 0 0 0 0 1 1 
+pState.Valid_2 0 0 0 0 0 0 0 0 1 0 1 
+pState.Ins_Val2 0 0 0 0 0 0 0 1 0 0 1 
+pState.StandBy 0 0 0 0 0 0 1 0 0 0 1 
+pState.Cont1 0 0 0 0 0 1 0 0 0 0 1 
+pState.Cont2 0 0 0 0 1 0 0 0 0 0 1 
+pState.Calc_Res 0 0 0 1 0 0 0 0 0 0 1 
+pState.Comp 0 0 1 0 0 0 0 0 0 0 1 
+pState.Ram 0 1 0 0 0 0 0 0 0 0 1 
+pState.Visor 1 0 0 0 0 0 0 0 0 0 1 
