@@ -6,7 +6,6 @@ Tomás Martins : https://github.com/tomasfilipe7
 
 Prime number generator on FPGA.
 
-Projeto final da cadeira de Laboratórios de Sistemas Digitais(Gerador de números primos).
 Este projeto consiste em ,após inserido um determinado intervalo na FPGA, mostrar todos os números primos nesse mesmo intervalo.
 
 ATENÇÃO:Requer conhecimento de código binário.
